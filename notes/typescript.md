@@ -1,4 +1,4 @@
-# TypeScript
+# [⬅️](/myguides) TypeScript
 
 ## Quiz
 
