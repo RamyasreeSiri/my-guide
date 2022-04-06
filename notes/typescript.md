@@ -26,7 +26,7 @@
   ```
 
   <details>
-    <summary>Solution</summary>
+    <summary>▶️ Solution</summary>
 
     for the property which has a potential to have a value of undefined should be passed with value `undefined` and an optional property doesn't need to be passed.
   </details>
@@ -34,8 +34,9 @@
 * Define `Index signature`
 * Define `Tuple`
 * List all types available in typescript
+
   <details>
-    <summary>Solution</summary>
+    <summary>▶️ Solution</summary>
     1. string
     2. number
     3. boolean
@@ -48,7 +49,7 @@
 
 * What is typescripts type system?
   <details>
-    <summary>Solution</summary>
+    <summary>▶️ Solution</summary>
     TypeScript’s type system is static(type check performed at compile type).
     TypeScript’s type system is structural(type checking involves the checking of structure or shape).
   </detials>
