@@ -1,4 +1,6 @@
-# [⬅️](/myguides) TypeScript
+# TypeScript
+
+[⬅️ Back to home](/my-guide)
 
 ## Quiz
 

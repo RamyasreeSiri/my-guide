@@ -1,6 +1,9 @@
-# [⬅️](/myguides) JAVA
+# JAVA
+
+[⬅️ Back to home](/my-guide)
 
 ## Quiz
+
 What is Java?
 Why use Java?
 What are low level languages and why are they called as such?
