@@ -35,12 +35,18 @@ Source code(High level languages) ----> Compiler ----> target language
 
 source code ---> [compiler] ---> machine code ---> [CPU] ---> results
 
+Pros                   | Cons
+:----                  | :----
+Fast execution         | No platform independence
+No compilation step       | Interpreter is loaded into the memory
+Easier to update |
+
 #### Interpreter
 
 **Interpretation** -> Directly executing source code to get results
 
 1. Its a virtual machine that simulates a CPU
-2. It executes precompiled machine code in its library for each command in the language, it doesn't generate machine code.
+2. It executes pre-compiled machine code in its library for each command in the language, it doesn't generate machine code.
 
 source code ---> [Interpreter] ---> results
 
@@ -49,3 +55,8 @@ Pros         | Cons
 Platform independence        | Slow, costly memory access, Source code is reinterpreted every time
 No compilation step       | Interpreter is loaded into the memory
 Easier to update |
+
+> Java uses compilation for fast execution and interpretation for platform independence.
+
+Java Source code --> [Java compiler] --> Java bytecode --> [Java interpreter] --> result
+
