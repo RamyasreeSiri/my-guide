@@ -2,6 +2,14 @@
 
 ## Heading 2
 
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
 *Italic*
 
 **Bold**
@@ -16,7 +24,8 @@
 
 Tooltip
 
-![Image](http://url/a.png)
+![Image](https://th.bing.com/th/id/R.36725ebc7438d839f8b8fbd76078d46b?rik=7J6n2TCxcSS%2fAQ&riu=http%3a%2f%2fi.imgur.com%2fEjcfA.jpg&ehk=yQQu2PqeOPplHPSpisZAvSf3v3KgHawqGKSiKZAT%2b1k%3d&risl=&pid=ImgRaw&r=0)
+<!-- ![image](https://i.pinimg.com/originals/f3/d3/d5/f3d3d561199d30e0822d6731d59da2ea.jpg) -->
 
 > Blockquote
 
@@ -28,7 +37,8 @@ Tooltip
 2. Two
 3. Three
 
-Horizontal rule:
+**Horizontal rule:**
+
 ---
 
 `Inline code` with backticks
@@ -53,3 +63,12 @@ Bare URL:<https://example.com>
  ---
  details body
  </details>
+
+ ~~This text is struckthrough.~~ This one isn’t.
+
+checklist
+
+* [X] Checkbox checked
+
+* [ ] Checkbox not checked
+
