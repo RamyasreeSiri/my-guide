@@ -1222,3 +1222,70 @@ There are 3 bit shift operators
 
 * operand1 = operand1 >> operand2
   * operand1 >>= operand2
+
+##### Control Flow statements
+  
+* It is a statement that affects the flow of control in your program
+
+###### if-statement
+
+* If executes an expression which results in a boolean value
+* else if is for multiple conditional execution
+* else is not followed by if again.
+* nested if blocks are allowed.
+
+```java
+static boolean ifStatement() {
+  boolean approved = false;
+
+  int age = 27;
+  int salary = 60000;
+  boolean hasBadCredit = false;
+
+  if(age >= 25 && age <=35 && salary >=50000) {
+    approved = true;
+  }
+  return approved;
+}
+
+```
+
+###### switch
+
+* Can be used as an alternative to if-statement
+* `break` statement indicates the end of switch statement.
+* Without a break statement all subsequent blocks are executed until it reaches a break statement.
+* Type of a switch expression
+  * Integer, eg., 7, x, x + y (byte, short, char, int),
+  * String
+  * enum
+  * can not be null, throws 'Null pointer exception'
+* Case Label Restrictions
+  * Must be within range of data type of switch expression
+  * Constant expression: value known at compile time
+  * Value must be unique
+  * Cannot be null
+
+```java
+int month = 3;
+
+switch(month) {
+  case 1: System.out.println("January"); break;
+  case 2: System.out.println("February"); break;
+  case 3: System.out.println("March"); break;
+}
+```
+
+###### ternary operator
+
+###### for statement
+
+###### for-each
+
+###### variable scope
+
+###### while statement
+
+###### break statement
+
+###### continue

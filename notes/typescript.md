@@ -953,7 +953,7 @@ class Car extends Base {
 const c = new Car("honda");
 ```
 
-- Note the following order of what ends up in the class constructor:
+* Note the following order of what ends up in the class constructor:
 
   1. super()
   2. param property initialization
