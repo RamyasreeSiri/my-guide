@@ -696,7 +696,6 @@ myArray[0][0] = 9;
 myArray[0][1] = 11;
 myArray[1][0] = 2;
 myArray[1][1] = 5;
-...
 
 // second way
 int[][] myArray = new int[][] {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }};
@@ -897,7 +896,7 @@ updateProfile(b); // compiler picks, `void updateProfile(short newId) {}`
 
 ```java
 // syntax
-ClassName(type param1, type param2, ...) {
+ClassName(type param1, type param2) {
   ...
 }
 
