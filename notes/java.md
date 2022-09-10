@@ -698,10 +698,12 @@ myArray[1][0] = 2;
 myArray[1][1] = 5;
 
 // second way
-// int[][] myArray = new int[][] {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }}; // commenting because build is giving error in git
+// raw
+int[][] myArray = new int[][] {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }};
 
 // third way
-// int[][] myArray = {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }}; // commenting because build is giving error in git
+// raw
+int[][] myArray = {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }};
 
 // Array with irregular rows
 int[][] myArray = new int[2][];
