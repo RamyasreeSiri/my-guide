@@ -254,6 +254,7 @@ function get_char_index(n: string, character): number {
 *Stack* - data structure on top of a linked list, first in - last out
 *ArrayBuffer* - set value of length, and when inserting more than the capacity, copy over everything and create a new array with more capacity
 *RingBuffer* - fill the positions in a continuous manner and when all is filled, copy it over to new array and continue
+*QuickSort* - have a pivot and move the values to either low of pivot or hight of pivot and pick a new pivot in low and high values by excluding the previous pivot and continue this till only one element is in the array.
 
 ### Recursion
 

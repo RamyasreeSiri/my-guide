@@ -697,13 +697,13 @@ myArray[0][1] = 11;
 myArray[1][0] = 2;
 myArray[1][1] = 5;
 
+{% raw %}
 // second way
-// raw
 int[][] myArray = new int[][] {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }};
 
 // third way
-// raw
 int[][] myArray = {{ 9, 11 }, { 2, 5 }, { 4, 4 }, { 6, 13 }};
+{% endraw %}
 
 // Array with irregular rows
 int[][] myArray = new int[2][];
