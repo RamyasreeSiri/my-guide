@@ -55,7 +55,7 @@
 other recommended books/materials:
 Reference: <https://www.coolworkx.com/Effective%20Java,%203rd%20Edition.pdf>
 
-### Java - a High level overview
+📘 Section 1: Java - a High level overview
 
 #### What is Java ?
 
@@ -220,7 +220,7 @@ public class Hello {
 * The class which we are executing from command-line should have a `main()` method
 * Program ends with main()
 
-### Classes, Objects and their Members
+📘 Section 3: Classes, Objects and their Members
 
 #### Object-Oriented Programming
 
@@ -320,7 +320,7 @@ synchronized, instanceof, return, transient, static, void, finally, strictfp, vo
 *Following is the reference link from where the above information is taken:*
 <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html>
 
-#### Statically vs Dymanically typed languages
+#### Statically vs Dynamically typed languages
 
 **Below are few advantages of static typing:**
 
@@ -948,6 +948,8 @@ new FileOutputStream(new File("blah.txt"), false);
 > StudentWithConstructor.java
 > *Assignment:* Arrays with Object Reference, Instructor.java, Book.java
 
+📘 Section 4: Method Building Blocks: Operators and Control-flow Statements
+
 ### Operators
 
 * An Operator is which performs operation on its operands and produces a result.
@@ -1257,15 +1259,35 @@ static boolean ifStatement() {
 * `break` statement indicates the end of switch statement.
 * Without a break statement all subsequent blocks are executed until it reaches a break statement.
 * Type of a switch expression
-  * Integer, eg., 7, x, x + y (byte, short, char, int),
+  * Integer, eg., 7, x, x + y (byte, short, char, int), can not be long, object reference of Integers(Byte, Short, Character, Integer)
   * String
   * enum
   * can not be null, throws 'Null pointer exception'
 * Case Label Restrictions
   * Must be within range of data type of switch expression
-  * Constant expression: value known at compile time
+  * Constant expression: value known at compile time(because compiler will check if express is within the range)
   * Value must be unique
   * Cannot be null
+* When is switch infeasible?
+  * More than one condition to test
+  * Tests other than equality, e.g., month >= 3
+  * Switch expression is not integer, string, or enum
+  * A case label restriction does not apply
+* When is switch preferred?
+  * Readability
+  * Intent(switch deliberately states that only one variable is involved)
+  * Speed
+    * Faster due to single condition & constant case labels
+    * if number of conditions are N, then  `if` is O(N) and switch is O(1)
+    * Use **Profiler** for analyzing the performance of your program. eg profilers: JProfiler
+
+Boxed primitive or wrapper classes
+ byte ---> Byte
+ short ----> Short
+ char ----> Character
+ int -----> Integer
+
+Constant variables are declared using final.
 
 ```java
 int month = 3;
@@ -1279,14 +1301,224 @@ switch(month) {
 
 ###### ternary operator
 
+* Can be used as alternative for `if-else` with single statement
+* result = (boolean-expression) ? true-expr : false-expr;
+* When is Ternary Preferred ?
+  * Improves readability
+* Cannot be an expression statement
+* Should be part of Method invocation of Method return or Assignment statement
+* If operands belong to different types, then smaller type is promoted to larger type.
+Example:
+
+```java
+
+float result = true ? 25 : 65.5f;
+```
+
+result will be 25.0f as int literal 25 will be promoted to float as the false expression 65.5f is of the larger type float.
+
 ###### for statement
+
+* Used for looping
+
+```java
+int[] iArray = {0, 1, 2, 3, 4};
+for(int i = 0; i < iArray.length; i++) {
+  System.out.println(iArray[i]);
+}
+```
+
+``` java
+// syntax
+for (initialization; condition-expression; expression-list) {
+  ...
+}
+```
+
+Initialization
+
+* optional
+* Declaration statement
+
+```java
+  for(int i = 0;;)
+  for(int i=0, j=0;;)
+  for(int i=0, int j=1;;) // invalid
+  for(int i=0, double j=1.0;;) // invalid
+```
+
+* Expression statements
+
+```java
+  for(int i=1, j=2;;)
+  for(int i=1, double d=10.0;;) // invalid
+  for(i++;;)
+  for(System.out.println(i);;)
+  for(System.out.println(i), i++;;)
+```
+
+Condition Expression
+
+* Must evaluate to boolean
+* Optional
+  * If omitted, a true is assumed, i.e., infinite loop, can use `break` statement to come out of loop
+
+```java
+for(int i=0;;i++) {
+  System.out.println(i);
+}
+```
+
+Expression List
+
+* Can have list of comma-separated expression statements
+`for(int i=0; i< iArray.length; System.out.println(iArray[i]), i++);`
 
 ###### for-each
 
+`for-each`: Prefer for-each loops to traditional for loops
+
+* Convenient Iteration (Cleaner Syntax)
+* No performance penalty(could be better for arrays)
+* Eliminates any opportunities for error
+
+```java
+for(int i: iArray) {
+  System.out.print(i + " ");
+}
+```
+
+* For-each over for loop
+  * need access to index
+  * transform array
+  * Parallel iteration
+  * Backward iteration
+
 ###### variable scope
+
+* Every variable has a scope
+* Class-level Variable
+  * Entire class
+  * Cannot be assigned to variables declared before it
+* Local Variables
+  * From declaration point to end of block
+  * A local variable cannot be shadowed or hidden
+* Shadowing Class-level variable
+  * Local variable can hide a class level variable
+
+```java
+int x = 10;
+
+void foo() {
+  int x = 0; // shadows class variable x
+  x++;
+  this.x++; // accessing class level variable
+}
+```
+
+* Methods invoked from current block will have new scope
+
+```java
+void foo() {
+  int x = 0;
+  bar();
+}
+
+void bar() {
+  x++; // invalid
+}
+```
 
 ###### while statement
 
+* Iteration statement
+* User for if number of conditions is known
+* Has only condition expression
+* `do-while` - use when the loop must at least run once
+
+```java
+while(condition) {
+
+};
+
+do {
+
+} while(condition);
+```
+
 ###### break statement
 
+* Exits immediately enclosing *switch* or *loop (for/while)*
+* labeled *break* can used for breaking out of a particular loop from any inner loops
+  * `label:` *block statement*
+  * *break* `label`
+  * Label used in break statement must be label of the block in which the label statement appears
+  * Label can be associated with any block statement
+
+```java
+
+b: for(;;) {
+  for(;;) {
+    break b;
+  }
+}
+
+label1: if() {
+  for() {
+    break label1;
+  }
+}
+
+// invalid
+if() {
+  break;
+}
+```
+✏️ BasicsDemo.java - labeledBreak
+
 ###### continue
+
+* Used with only loops(for and while)
+* Continues with next iteration of innermost loop
+
+```java
+
+while(condition-expression) {
+  if(condition) {
+    continue;
+  }
+}
+```
+
+* Labeled continue Statement
+  * `label:` *loop-statement*
+  * *continue* `label;`
+  * Label can be associated with loops
+
+```java
+
+// invalid as there is no enclosed loop
+label1: if() {
+  for() {
+    continue label1;
+  }
+}
+```
+
+✏️ BasicsDemo.java > labeledContinue
+
+##### Recursion
+
+* A method invoking itself.
+* A method will be calling itself until a base case is met.
+* Example implementations: Binary Search, Towers of Hanoi, Word Frequency Count
+
+✏️ Recursion.java > factorialNR, factorialR, BinarySearch
+
+📘 Section 5: Packages, Strings and information hiding design principle
+
+### Java API
+
+* Library of well-tested classes
+* Java 8 ~ 4240 classes
+* Part of both JDK and JRE
