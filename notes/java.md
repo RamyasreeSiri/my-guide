@@ -57,14 +57,14 @@ Reference: <https://www.coolworkx.com/Effective%20Java,%203rd%20Edition.pdf>
 
 📘 Section 1: Java - a High level overview
 
-#### What is Java ?
+### What is Java ?
 
 A General purpose(not dependent on any domain, can be used to develop wide variety of applications), object-oriented(helps real world scenarios), platform independent(write once and run anywhere), concurrent(multi-threading) programming language that runs very fast.
 
 Assembly Language ----> assembler ----> Machine language
 Source code(High level languages) ----> Compiler ----> target language
 
-#### Compiler
+### Compiler
 
 **Compilation** -> Converting of sourcecode to target language(machine code, byte code, programming lanugage),
 
@@ -80,7 +80,7 @@ Fast execution         | No platform independence
 No compilation step       | Interpreter is loaded into the memory
 Easier to update |
 
-#### Interpreter
+### Interpreter
 
 **Interpretation** -> Directly executing source code to get results
 
@@ -99,7 +99,7 @@ Easier to update             |
 
 Java Source code --> [Java compiler] --> Java bytecode --> [Java interpreter] --> result
 
-##### JVM
+#### JVM
 
 * JVM is the Java interpreter we use,
 * JVM is platform specific or dependent which helps in achieving platform independence.
@@ -110,7 +110,7 @@ Java Source code --> [Java compiler] --> Java bytecode --> [Java interpreter] --
 **Commands used for compilation and interpretation of JAVA**
 Java source code, `Hello.java` --> compile using `javac Hello.java` --> output is `Hello.class` (java bytecode) --> JVM executes it in any platform using `java Hello`
 
-###### Execution speed of JVM(performance)
+##### Execution speed of JVM(performance)
 
 * Java bytecode is compact, compiled, and optimized which is Designed for JVM, and JVM interpretation of Java bytecode is much faster.
 * Just-in-time(JIT) compilation(*Dynamic compilation*) by JVM.
@@ -118,19 +118,19 @@ Java source code, `Hello.java` --> compile using `javac Hello.java` --> output i
 * Manipulates memory at runtime
 * **JIT** It is a JVM component that perform dynamic compilation by converting frequently executed bytecode called "hot spots" into machine code. The compiled machine code is cached and used in future to achieve faster performance.
   
-###### Core Responsibilities of JVM
+##### Core Responsibilities of JVM
 
 * Loading and Interpreting Java bytecode
 * Security
 * Automatic Memory management
 
-###### JVM Instance
+##### JVM Instance
 
 * When we run java program using JVM command `Java Hello`, an instance of JVM is loaded into the memory which executes Java bytecode `Hello.class`.
 * Single JVM instance run only one Java program
 * Can run more than once JVM instance at a single time to run multiple java programs
 
-###### JVM Architecture
+##### JVM Architecture
 
 ![image](../images/java/JVM_architecture.drawio.svg)
 
@@ -143,7 +143,7 @@ Java source code, `Hello.java` --> compile using `javac Hello.java` --> output i
 7. **Garbage Collector** is responsible for automatic memory management
 8. **Security Manager** is responsible for security, like having additional checks to stop executing of bytecode which can access the filesystem, and having it execute in more restricted environment called the sandbox environment
 
-#### Java Software family
+### Java Software family
 
 * Java Standard Edition(Java SE) - Standalone applications for desktops and servers
 * Java Enterprise Edition(Java EE) - Large-scale applications for server, Built on Java SE
@@ -160,7 +160,7 @@ Java source code, `Hello.java` --> compile using `javac Hello.java` --> output i
 **JSR** - Java specification request, describes the features added to a release, each release will have a JSR.
 **JCP** - Java community process, The process of developing JSR through different stages.
 
-#### Installation
+### Installation
 
 jdk download from - <https://www.oracle.com/java/technologies/downloads/>
 
@@ -172,7 +172,7 @@ Windows:
 
 uninstall -> control panel -> uninstall a program -> select `java 18` -> click 'uninstall'
 
-#### Setting classpath
+### Setting classpath
 
 * a path on file system for locating `Java classes`
 * using classpath in interpreter finds the class file when we are executing `java Hello`.
@@ -182,7 +182,7 @@ Windows:
 *set environment variable*
 `classpath` to `.;`
 
-#### Classes
+### Classes
 
 * Object are created from a class
 
@@ -222,7 +222,7 @@ public class Hello {
 
 📘 Section 3: Classes, Objects and their Members
 
-#### Object-Oriented Programming
+### Object-Oriented Programming
 
 * Used to simplify large projects.
 * Model real-world scenarios in a more natural way.
@@ -303,7 +303,7 @@ class StudentTest {
 
 > BasicsDemo.java
 
-#### Java’s Reserved Keywords
+### Java’s Reserved Keywords
 
 ```java
 
@@ -320,7 +320,7 @@ synchronized, instanceof, return, transient, static, void, finally, strictfp, vo
 *Following is the reference link from where the above information is taken:*
 <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html>
 
-#### Statically vs Dynamically typed languages
+### Statically vs Dynamically typed languages
 
 **Below are few advantages of static typing:**
 
@@ -376,7 +376,7 @@ mean. Pros & cons of both types of languages are also debated.
 [what-do-people-find-so-appealing-about-dynamic-languages](https://stackoverflow.com/questions/42934/what-do-people-find-so-appealing-about-dynamic-languages)
 [what-is-the-difference-between-statically-typed-and-dynamically-typed-languages](https://stackoverflow.com/questions/1517582/what-is-the-difference-between-statically-typed-and-dynamically-typed-languages)
 
-#### Primitive Data types
+### Primitive Data types
 
 * variable storing primitive data type is called primitive variable
 * if variable type is class or interface then the variable will store object reference.
@@ -393,7 +393,7 @@ mean. Pros & cons of both types of languages are also debated.
 * *double*    - Floating-point
 * *char*      - Character
 
-##### Integer Primitive data types
+#### Integer Primitive data types
 
 * Whole or fixed-point numbers, eg., 65, -1000
 * byte, short, int, long
@@ -406,7 +406,7 @@ mean. Pros & cons of both types of languages are also debated.
 |int     |32 bits     |-2^31 to 2^31 -1  |0        |
 |long    |64 bits     |-2^63 to 2^63 -1  |0        |
 
-###### Literals
+##### Literals
 
 * There are two types of literals `int` and `long`
 * Any whole number is considered as `int` literal
@@ -414,7 +414,7 @@ mean. Pros & cons of both types of languages are also debated.
 * `int` literal can be assigned to `byte`, `short` and `int`
 * `long` literal can be assigned to `long`
 
-###### Primitive variables of type int and long
+##### Primitive variables of type int and long
 
 ``` java
 // Binary - 65 number representation
@@ -427,7 +427,7 @@ int hexaDecimal = 0x0041;
 int octalInteger = 0101; // 65
 ```
 
-##### Floating point data types
+#### Floating point data types
 
 * Real numbers, eg: 3.14, -0.024
 * float, double
@@ -452,7 +452,7 @@ float floatNumber = 3.8f;
 float floatNumber2 = 3.88888888888888888889f; // 3.8888888 - 7 decimal places
 ```
 
-##### BigDecimal
+#### BigDecimal
 
 Avoid float and double if exact answers are required, use BigDecimal.
 
@@ -463,7 +463,7 @@ BigDecimal second = new BigDecimal("0.2");
 System.out.println(first.add(second));
 ```
 
-##### Characters Primitive type
+#### Characters Primitive type
 
 * Single letter characters, e.g., 'A', 'O', '$'
 * char `char degree = 'B'`(66) or `char degree = '\u0042'`
@@ -492,7 +492,7 @@ char charBinary = 0b0100_0001; // int literal
 char charOctal = 0101; // int literal
 ```
 
-##### Boolean primitive type
+#### Boolean primitive type
 
 * default value is `false`, stores either `true` or `false`
 * Used in conditional statements.
@@ -503,7 +503,7 @@ boolean international = true;
 boolean byDefault; // equals false
 ```
 
-#### Variable kinds
+### Variable kinds
 
 * Instance & Static:
   * Declared at class-level
@@ -523,7 +523,7 @@ boolean byDefault; // equals false
 
  Instance & static variables are also referred to as fields or attributes. Attributes is probably more commonly associated with instance variables.
 
-##### Multiple variable declaration
+#### Multiple variable declaration
 
 * Can be done if the variables are of same type.
 
@@ -539,7 +539,7 @@ double internationalFee = tuitionFee = 5000.0; // tuitionFee is re-initializatio
 tuitionFree = 100.0; // re-initialization on class level is not allowed, but can be done as mentioned above.
 ```
 
-#### Type Casting
+### Type Casting
 
 * Converting value of one type to another.
 * Assign variable or literal of one type to variable of another type, then implicit type casting is done.
@@ -549,7 +549,7 @@ tuitionFree = 100.0; // re-initialization on class level is not allowed, but can
 * Cannot cast to boolean or vice versa
 * Implicit or Explicit
 
-##### Implicit Casting
+#### Implicit Casting
 
 * Smaller to larger ~ widening conversion
 `byte(8-bit) --> short(16-bit) --> int(32-bit) --> long(64-bit) --> float(32-bit) --> double(64-bit)`
@@ -563,7 +563,7 @@ long y = x; // implicit casting by compiler
 
 * Integer to Floating-point is implicit too
 
-##### Explicit Casting
+#### Explicit Casting
 
 * Larger to smaller ~ narrow conversion
 `byte(8-bit) <-- short(16-bit) <-- int(32-bit) <-- long(64-bit) <-- float(32-bit) <-- double(64-bit)`
@@ -585,7 +585,7 @@ char c = 65; // c = 'A' (implicit)
 short s = 'A'; // s = 65; (implicit)
 ```
 
-###### Information loss in Explicit casting
+##### Information loss in Explicit casting
 
 * **Out-of-range assignments**
   * `byte narrowedByte = (byte) 12345 // 64`
@@ -595,11 +595,11 @@ short s = 'A'; // s = 65; (implicit)
   * `int y=(int) 0.9; // y=0`
   * `char c = (char) 65.5; // c = 'A'`
 
-###### Information loss in Implicit casting
+##### Information loss in Implicit casting
 
 * Assigning a `int` to a `float` or `long` to a `float` or `long` to `double` to lead to loss of precision.
 
-##### Casting Use-cases
+#### Casting Use-cases
 
 ```java
 // Implicit Casting
@@ -617,7 +617,7 @@ double avg = (2+3)/2; //2.0, not 2.5F
 double avg = (double)(2+3)/2;
 ```
 
-#### Variables holding Object references
+### Variables holding Object references
 
 `Student s = new Student();`
  `new Student()` -> Allocate space for new Student object
@@ -636,7 +636,7 @@ Student s;
 s.updateProfile(); // NullPointerException
 ```
 
-#### Statements
+### Statements
 
 * Statements: Involves one or more expressions
 * Expressions when evaluated results in a single value.
@@ -666,7 +666,7 @@ s.updateProfile(); // NullPointerException
   * Nested Class and Interface declarations
   * Instance and static Initializers
   
-#### Array
+### Array
 
 * Array - Container object that holds fixed number of values of single type
 * Data structure - means an organized collection of similar data
@@ -687,7 +687,7 @@ int[] scores = new int[] {90, 70, 80, 100}; // second way of initializing an arr
 int[] scores = {90, 70, 80, 100}; // third way of initializing an array
 ```
 
-##### 2D Arrays
+#### 2D Arrays
 
 ```java
 // first way
@@ -711,7 +711,7 @@ myArray[0] = new int[5];
 myArray[1] = new int[2];
 ```
 
-##### 3D Arrays creation and Initialization
+#### 3D Arrays creation and Initialization
 
 ```java
 // first way
@@ -725,7 +725,7 @@ int[][][] myArray = new int[1][1][1] {{{850}}};
 int[][][] myArray = {{{850}}};
 ```
 
-#### Methods
+### Methods
 
 * Used in defining behavior of an object.
 * Self-Contained logic that can be used many times.
@@ -743,7 +743,7 @@ returnType methodName(type param1, type param2, ...) {
 type varName = methodName(arg1, arg2, ...) // arguments are passed
 ```
 
-##### Return Type
+#### Return Type
 
 * `void`
   * Nothing to return
@@ -758,12 +758,12 @@ type varName = methodName(arg1, arg2, ...) // arguments are passed
 * Must be primitive, array, class, interface, or void
 * Other than void -> must return value
 
-##### Method Types
+#### Method Types
 
 * Two types, Static Method and Instance Method.
 * A class can have only instance methods, or only static methods, or both.
 
-###### Instance Methods
+##### Instance Methods
 
 * Object-level methods
 * *Invocation:* `objectReference.methodsName()`
@@ -773,7 +773,7 @@ type varName = methodName(arg1, arg2, ...) // arguments are passed
 * Accessibility from Instance Methods:
   * Can access anything from an instance method. So, we can even access static variables/methods defined in the same class as the instance method.
 
-###### Static Methods
+##### Static Methods
 
 * Keyowrd `static` in declaration
 * Class-level methods
@@ -790,25 +790,25 @@ type varName = methodName(arg1, arg2, ...) // arguments are passed
 
 > *Assignment*: MoneyTransferService.java
 
-##### Data passing in Java
+#### Data passing in Java
 
 * Data is passed by value in Java
 * Identical to *variable assignment*, *method parameter = method argument*
 
 ![image](../images/java/memory_storage_variables.drawio.svg)
 
-###### Primitives in Memory
+##### Primitives in Memory
 
 * `int id = 1000`;
 * id -> <logical name, memory address, value>
 * At run time we have only memory address(i.e., 81921 as in the above diagram) and real data
 
-###### Object References in Memory
+##### Object References in Memory
 
 * `Student s = new Student();`
 * 81921 - memory address of 's', 85411 - memory address of actual variable
 
-###### Pass by Value
+##### Pass by Value
 
 * *Value of argument* is passed to parameter
   * Primitive argument ~ value is primitive
@@ -836,7 +836,7 @@ updateId(s);
 
 > Java is always pass by value!!
 
-##### Method OverLoading
+#### Method OverLoading
 
 * Same name, *different parameter list*
 * Must change parameter list
@@ -859,7 +859,7 @@ byte b = 50;
 updateProfile(b); // compiler picks, `void updateProfile(short newId) {}`
 ```
 
-##### varargs
+#### varargs
 
 * *varargs* - variable-length arguments
 * Before Java 5, there used to be fixed number of arguments
@@ -889,7 +889,7 @@ updateProfile(b); // compiler picks, `void updateProfile(short newId) {}`
   foo(boolean flag, int[] items) // because both are identical
   ```
 
-#### Constructors
+### Constructors
 
 * Used in creating objects
 * When not declared, complier declares it implicitly with no parameters(no-args constructor)
@@ -912,7 +912,7 @@ class Student {
 Students = new Student(1001); 
 ```
 
-##### Constructor Overloading
+#### Constructor Overloading
 
 * One or more constructor with same name and different parameters
 
@@ -1226,11 +1226,11 @@ There are 3 bit shift operators
 * operand1 = operand1 >> operand2
   * operand1 >>= operand2
 
-##### Control Flow statements
+### Control Flow statements
   
 * It is a statement that affects the flow of control in your program
 
-###### if-statement
+#### if-statement
 
 * If executes an expression which results in a boolean value
 * else if is for multiple conditional execution
@@ -1253,7 +1253,7 @@ static boolean ifStatement() {
 
 ```
 
-###### switch
+#### switch
 
 * Can be used as an alternative to if-statement
 * `break` statement indicates the end of switch statement.
@@ -1299,7 +1299,7 @@ switch(month) {
 }
 ```
 
-###### ternary operator
+#### ternary operator
 
 * Can be used as alternative for `if-else` with single statement
 * result = (boolean-expression) ? true-expr : false-expr;
@@ -1317,7 +1317,7 @@ float result = true ? 25 : 65.5f;
 
 result will be 25.0f as int literal 25 will be promoted to float as the false expression 65.5f is of the larger type float.
 
-###### for statement
+#### for statement
 
 * Used for looping
 
@@ -1374,7 +1374,7 @@ Expression List
 * Can have list of comma-separated expression statements
 `for(int i=0; i< iArray.length; System.out.println(iArray[i]), i++);`
 
-###### for-each
+#### for-each
 
 `for-each`: Prefer for-each loops to traditional for loops
 
@@ -1394,7 +1394,7 @@ for(int i: iArray) {
   * Parallel iteration
   * Backward iteration
 
-###### variable scope
+#### variable scope
 
 * Every variable has a scope
 * Class-level Variable
@@ -1429,7 +1429,7 @@ void bar() {
 }
 ```
 
-###### while statement
+#### while statement
 
 * Iteration statement
 * User for if number of conditions is known
@@ -1446,7 +1446,7 @@ do {
 } while(condition);
 ```
 
-###### break statement
+#### break statement
 
 * Exits immediately enclosing *switch* or *loop (for/while)*
 * labeled *break* can used for breaking out of a particular loop from any inner loops
@@ -1476,7 +1476,7 @@ if() {
 ```
 ✏️ BasicsDemo.java - labeledBreak
 
-###### continue
+#### continue
 
 * Used with only loops(for and while)
 * Continues with next iteration of innermost loop
@@ -1507,7 +1507,7 @@ label1: if() {
 
 ✏️ BasicsDemo.java > labeledContinue
 
-##### Recursion
+### Recursion
 
 * A method invoking itself.
 * A method will be calling itself until a base case is met.
