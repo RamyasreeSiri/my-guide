@@ -27,7 +27,9 @@
 
 ## Documentation / Specification
 
-[Book The introduction to algorithms](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGdvcml0aG1zaWNzMzUzfGd4OjI3ZjYxZjM3MmI1NGNhNmU)
+[Spring framework](https://spring.io/projects/spring-framework)
+[Spring framework docs](https://docs.spring.io/spring-framework/docs/current/reference/html/overview.html)
+[Spring Boot docs](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 
 ## Notes
 
@@ -88,11 +90,43 @@ Spring VS Java EE - initially was developed to overcome JEE implementation compl
      * Support for Distributed systems
      * Support for micro services
 
-6. Other spring projects - Spring Batch, Spring Integration, Spring HATEOAS, Spring Web Flow, Spring Web Services.
+6. Other spring projects - Spring Batch, Spring Integration, Spring HATEOAS, Spring AMQP, Spring Web Flow, Spring Web Services.
 
 * Spring Roo, Groovy - are previous attempts to fix the large complexity of spring ecosystem
 * Spring Boot is the latest one
 
-📃 Lesson 3 - Introducing spring Boot
+📃 Lesson 3 - Introducing spring Boot 2
 
-#### Spring Boot
+#### What is Spring Boot?
+
+* A layer of abstraction on top of Spring framework
+* Can be used to build web applications
+* Reduced a lot of boilerplate code and has less configuration than Spring
+
+#### Basic features of Boot
+
+* like JPA or Testing or web or email or logging
+* Default configuration
+* Actuators ( monitoring metics, health of the application, etc.,)
+
+📃 Lesson 4 - The Real-World Project we're building
+
+Project Name: Project and Task management application
+
+* Use [Spring Initializr](https://start.spring.io/) to create the project
+  * Project - Maven
+  * Language - Java
+  * Spring Boot - 2.1.4(latest stable version)
+  * Project Metadata
+    * Group - com.baeldung
+    * Artifact - task-management-app-lesson
+  * Dependencies - Web
+
+##### Import project In Eclipse
+
+1. Open [Eclipse STS](https://spring.io/tools)
+2. `Import existing project`
+3. `Existing Maven project`
+
+#### Latest Maven installation
+https://maven.apache.org/download.cgi?Preferred=ftp://ftp.osuosl.org/pub/apache/

@@ -246,15 +246,14 @@ function get_char_index(n: string, character): number {
 6. Queue
 7. QuickSort
 
-
-*Bubble sort* - is a simple sorting algorithm that compares a pair of adjacent elements in a list. If an element is not in the right order, we swap the element with the one before.
-*LinkedList* - The data structure will have a node, a header pointer, a tail pointer - node has a value, and next node pointer
-*DoublyLinkedList* - The data structure will have node, prev node pointer, head pointer, tail pointer - node has a value, and next node pointer.
-*Queue* - data structure on top of a linked list, first in - first out
-*Stack* - data structure on top of a linked list, first in - last out
-*ArrayBuffer* - set value of length, and when inserting more than the capacity, copy over everything and create a new array with more capacity
-*RingBuffer* - fill the positions in a continuous manner and when all is filled, copy it over to new array and continue
-*QuickSort* - have a pivot and move the values to either low of pivot or hight of pivot and pick a new pivot in low and high values by excluding the previous pivot and continue this till only one element is in the array.
+* *Bubble sort* - is a simple sorting algorithm that compares a pair of adjacent elements in a list. If an element is not in the right order, we swap the element with the one before.
+* *LinkedList* - The data structure will have a node, a header pointer, a tail pointer - node has a value, and next node pointer
+* *DoublyLinkedList* - The data structure will have node, prev node pointer, head pointer, tail pointer - node has a value, and next node pointer.
+* *Queue* - data structure on top of a linked list, first in - first out
+* *Stack* - data structure on top of a linked list, first in - last out
+* *ArrayBuffer* - set value of length, and when inserting more than the capacity, copy over everything and create a new array with more capacity
+* *RingBuffer* - fill the positions in a continuous manner and when all is filled, copy it over to new array and continue
+* *QuickSort* - have a pivot and move the values to either low of pivot or hight of pivot and pick a new pivot in low and high values by excluding the previous pivot and continue this till only one element is in the array.
 
 ### Recursion
 

@@ -1522,3 +1522,338 @@ label1: if() {
 * Library of well-tested classes
 * Java 8 ~ 4240 classes
 * Part of both JDK and JRE
+
+#### Packages
+
+* Classes are grouped into packages
+* Packages are similar to directories of the file system
+  * Ex: `java.lang`, `java.util`, `java.io`
+
+##### Why Packages?
+
+* They provide meaningful organizations
+* Name scoping
+* Security(to restrict usage of a parts of a class outside of the package, they can only be classes with in that package)
+
+Important packages
+
+|Header1 |Header2  |
+--- | --- | ---|
+|java.lang|Fundamental classes|
+|java.util|Data structures|
+|java.io|Reading and Writing|
+|java.net|Networking|
+|java.sql|Databases|
+
+* 3rd party API's - 🗄️ `resources/5_1_3rdpartypackages`
+
+##### Accessing Classes
+
+* Same package -> direct access
+* Different package
+  * import
+  * Fully-qualified class name(packagename.classname) - used rare
+
+```java
+
+// import
+import java.util.ArrayList;
+
+class FooClass {
+  void foo() {
+    ArrayList list = new ArrayList();
+  }
+}
+```
+
+* `import` are declared at the top of the class outside the class definition
+
+###### Importing Single vs Multiple classes
+
+* Import *single* class
+  * explicit import(or Single-Type-Import)
+* Import *multiple* classes
+  * Separate explicit import
+  * \* import(or import-on-demand) - `import java.util.*` - imports all classes in a package
+* Explicit import or /* import?
+  * /* import can break code if there are class with same name from different packages
+  * Better clarity with explicit import
+  * Explicit import seems to be preferred
+
+###### Fully-qualified class Name
+
+* Alternative to import
+`java.util.ArrayList list = new java.util.ArrayList();`
+* Explicit import takes precedence over /* import.
+
+```java
+import java.util.Date; // explicit import
+import java.sql.*; // start import
+
+Date date; // from util
+java.sql.Date date2; // full-qualified class name
+```
+
+###### Any Side Affects in Using import?
+
+* No side affects
+* Does not make your class bigger!! ( it's not going to import the bytecode of the imported class)
+* Does not affect runtime performance
+* Saves from typing fully-qualified name -> compiler does this
+
+> `java.lang` is imported by default
+
+#### Creating Packages
+
+* starts with `com.<companyname>.<groupingname>`
+* Package statement
+  * `package <package-name>` - `package com.semanticsquare.basics;`
+  * Must be first statement above any imports
+
+* To put a class in a package
+  * Add it to the last directory of the package and include package statement at the top of the class file
+
+* After a class in package is compiled, the *package name is part of the class name*
+  * Executing `java BasicsDemo` will not work once complied as package
+  * `java com.semanticsquare.basics.BasicsDemo` - fully qualified name should be used to execute it.
+
+* Naming packages
+  * Use organization's reverse internet domain name
+  * Eg: `edu.stanford.math.geometry`, `com.oracle.math.geometry`
+* Component Naming conventions
+  * Lowercase alphabets, rarely digits
+  * Short, generally less than 8 characters
+  * Meaningful abbreviations, eg., util for utilities
+  * Acronyms are fine, e.g., awt for Abstract Window Toolkit
+  * Generally, single word
+  * Never start with java or javax
+
+##### Setting classpath for packages
+
+```java
+// BasicsDemoTest.java
+package com.semanticsquare.basictest;
+
+import java.util.ArrayList;
+import com.semanticsquare.basics.BasicsDemo;
+
+public class BasicsDemoTest {
+  public static void main(String[] args) {
+    new BasicsDemo().foo();
+  }
+}
+```
+
+* classpath - is where class files can be found, when compiling classpath should be set for third party or user defined packages
+
+```shell
+> javac BasicsDemoTest.java
+# setting of classpath only for the current execution
+set classpath=.;C:\project;
+# clearing of classpath
+set classpath=
+# to set it permanently use environment variables
+
+# set using flag, only for the current command
+> javac -cp C:\javaindepth\src BasicsDemoTest.java
+# or
+> javac -classpath C:\javaindepth\src BasicsDemoTest.java
+```
+
+##### Sub packages
+
+`java.util` - `import java.util.*`
+`java.util.concurrent` - sub package - `import java.util.concurrent.*`
+
+> Note: to create class files in a directory for all the file execute, `com\semanticsquare\basics\*.java` or `javac *.java`
+
+#### Access Levels
+
+* Which classes are available outside of the package and not available outside of the package
+* Provide restrictions on accessing classes (interfaces) and their members
+  
+##### Accessibility for Classes/Interfaces
+
+* Inside package -> default case, no access modifier is present
+* Inside and outside package -> `public`
+
+```java
+
+// "public" is the access modifier, added before class keyword
+public class BasicsDemo {
+
+}
+```
+
+##### Accessibility for Class Members
+
+* Inside class -> `private`
+  * `private int id = 4;`
+  * It's private to the class, but not private to the objects of its class
+  * An object of a class can access private stuff of other objects of the same class.
+* Inside package only(package-private)
+  * int is = 4;
+* Inside package only + any subclass -> `protected`
+  * `protected int id = 4;`
+* Inside & outside package -> `public`
+  * `public int id = 4;`
+
+### Strings
+
+#### Strings: Introduction
+
+* Object of class `java.lang.String`
+
+```java
+// not recommended
+String s = new String(); // empty string
+String s = new String("hello!");
+
+char[] cArray = {'h', 'e', 'l', 'l', 'o'};
+String s = new String(cArray);
+
+// recommended // internally implemented in efficient way
+String s = "hello"; // string literal // recommended
+```
+
+* *String* literals are enclosed in double quotes
+* A *String* literal ("any string") is a string object(internally it is passed as string object)
+
+* String class uses character array to store test
+* Java uses UTF-16 for characters
+* String is sequence of unicode characters
+* String is immutable
+
+> String object ~ immutable sequence of unicode characters
+
+#### Strings: Common Operations
+
+* Comparing
+* Searching
+* Examining individual characters
+* Extracting substrings
+* Case translation
+* Replace
+* Split
+
+✏️ BasicsDemo.java > stringExamples
+
+#### Strings: 3rd Party String Utilities
+
+* Apache Commons Lang -> `StringUtils`
+* Guava's String Utility Classes
+
+#### String: String Literal vs Using new
+
+* String (via string literal)
+  * Store in string pool on heap,
+  * Literals with same content share storage
+  * saves memory
+* String (via new)
+  * Same as regular object
+  * No storage sharing
+  * string object first is created in string pool and reference is passed to constructor to construct a new string object outside of string pool.
+
+![image](../images/java/stringpool.svg)
+
+##### String Pool
+
+* Stores single copy of each string literal as string object
+* Only one string pool
+* Also called as **string table**
+* The Process of building string pool is called as **interning**
+* 'intern' is a single literal in string pool
+* Supported by Python, Ruby, C#, JavaScript
+* Explicit interning can be done by `s1.intern()`
+
+✏️ BasicsDemo.java > stringPool
+
+#### String Concatenation
+
+* using "+" operator
+* StringBuilder (java.lang.StringBuilder)
+* StringBuffer (java.lang.StringBuffer)
+
+```java
+
+// + operator
+// Concatenation happens from left to right
+String s = "hello" + "world!" + 125 + 25.5 // "hello world!12525.5"
+String s = 125 + 25.5 + "hello" + "world!" // "150.5hello world!"
+```
+
+##### StringBuilder
+
+* Allows string mutation
+* Not synchronized
+
+```java
+
+StringBuilder sb = new StringBuilder();
+sb.append("hello");
+sb.append(" world!");
+String s = sb.append("Good").append("morning").toString();
+```
+
+##### StringBuffer
+
+* Synchronized -> slower to StringBuilder as this is synchronized
+* API compatible with stringBuilder
+
+#### Time complexity of + operator
+
+* Combining few string is fine
+* With each concatenation,
+  * Contents of both string are copied
+  * New *StringBuilder* is created and appended with both strings
+  * Return string via toString()
+
+```java
+
+s += "a"; // copy of "" and a are made to generate a
+s += "b"; // copy of a and b are made to generate ab
+s += "c"; // copy of ab and c are made to generate abc
+```
+
+* StringBuilder is created for each concatenation
+**Time consuming -> O(N^2), space consuming**
+
+#### Time complexity of StringBuilder
+
+* is **O(N)**
+* StringBuilder is 300 times faster than `+` operator
+* StringBuilder is 2 times faster than StringBuffer
+
+📔 Refer resources/string_builder_performance.pdf
+
+### Escape Sequences
+
+* \" - double quote
+* \' - single quote
+* \n - new line
+* \t - tab
+* \\ - backslash
+* \r - carriage return
+* \b - backspace
+* \f - formfeed
+
+* can also be used in representing unicode character `char c = "\u0041"`
+
+💯 exercises > SentimentAnalyzer
+
+### Information Hiding
+
+* Encapsulation
+  * Data + Methods - code and data together into a single unit.
+  * Done using class
+* In public classes, use accessor methods, not public fields (Effective Java: 14 rule)
+* Using accessor methods to restrict direct access to the data fields is called Loose coupling.
+* With Loosely Coupled Systems, we can Develop, test, use, and optimize in isolation.
+* Minimize the accessibility of classes and members (Effective Java: 13 rule)
+* Accessibility for Class Members
+  * Design minimal public API of your class
+  * Make all other members private
+  * Make a member default(can be accessed by another class in the same package), only if really needed
+* Accessibility for Classes/ Interfaces
+  * If possible, let it be default
+  * If only one class uses it, make it private nested
